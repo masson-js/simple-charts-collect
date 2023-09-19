@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <title>Document</title>
+</head>
+<body>
+<svg id="container">
+  <rect/>
+  <rect/>
+  <rect/>
+  <rect/>
+  <rect/>
+</svg>
+<script>
+  const barData = [45, 67, 96, 84, 41]
+
+  const rectWidth = 50;
+
+  d3.select('#container')
+  .style('width', `${rectWidth * barData.length}`)
+  .style('height', "100px")
+  .style('border', '1px dashed')
+  
+  d3.select('#container').selectAll('rect')
+    .data(barData)
+    .attr('x', (d, i) => i * rectWidth)
+    .attr('y', (d) => 100 - d)
+    .attr('height', d => d)
+    .attr("width", rectWidth)
+    .attr('stroke-width', 3)
+    .attr('stroke', 'plum')
+    .attr('fill', 'pink')
+
+  
+
+</script>
+</body>
+</html>
